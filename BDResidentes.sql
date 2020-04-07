@@ -33,7 +33,7 @@ CREATE TABLE `empresas` (
   `domicilio` varchar(80) NOT NULL,
   `giro` varchar(30) NOT NULL,
   `sector` enum('Público','Privado') NOT NULL,
-  `telefono` varchar(12) NOT NULL,
+  `telefono` varchar(18) NOT NULL,
   `mision` text NOT NULL,
   PRIMARY KEY (`id_empresa`),
   KEY `id_estado` (`id_estado`),

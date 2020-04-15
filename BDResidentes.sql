@@ -18,8 +18,7 @@
 --
 -- Table structure for table `empresas`
 --
-create database residentes_itsur;
-use residentes_itsur;
+
 DROP TABLE IF EXISTS `empresas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -36,11 +35,12 @@ CREATE TABLE `empresas` (
   `telefono` varchar(18) NOT NULL,
   `mision` text NOT NULL,
   PRIMARY KEY (`id_empresa`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `id_estado` (`id_estado`),
   KEY `id_municipio` (`id_municipio`),
   CONSTRAINT `empresas_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estado`),
   CONSTRAINT `empresas_ibfk_2` FOREIGN KEY (`id_municipio`) REFERENCES `municipios` (`id_municipio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,7 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
+INSERT INTO `empresas` VALUES (19,'CECyTEM Plantel 16','cecytem16@edu.mx',16,814,23456,'El atoron enfrente del balneario el paraiso','Servicios','Público','567 908 4356','Familia CECyTEM cual es nuestro rumbo la excelencia');
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,8 +145,9 @@ CREATE TABLE `usuarios` (
   `email` varchar(40) NOT NULL,
   `_password` varchar(40) NOT NULL,
   `tipo_usuario` enum('Empresa','Administrador') DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,6 +156,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'admin@admin.com','2230adbb256f247dbcac7d0354992894efed8da7','Administrador'),(3,'cecytem16@edu.mx','2230adbb256f247dbcac7d0354992894efed8da7','Empresa');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-05 19:23:59
+-- Dump completed on 2020-04-14 19:56:20

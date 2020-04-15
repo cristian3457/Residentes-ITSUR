@@ -18,7 +18,8 @@
 --
 -- Table structure for table `empresas`
 --
-
+create database residentes_itsur;
+use residentes_itsur;
 DROP TABLE IF EXISTS `empresas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;

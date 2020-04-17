@@ -16,10 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `empresas`
+-- Table structure for table `ciudades`
 --
 create database residentes_itsur;
 use residentes_itsur;
+DROP TABLE IF EXISTS `ciudades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `ciudades` (
+  `id_ciudad` int(11) NOT NULL AUTO_INCREMENT,
+  `id_estado` int(11) NOT NULL,
+  `ciudad` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_ciudad`),
+  KEY `id_estado` (`id_estado`),
+  CONSTRAINT `ciudades_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ciudades`
+--
+
+LOCK TABLES `ciudades` WRITE;
+/*!40000 ALTER TABLE `ciudades` DISABLE KEYS */;
+INSERT INTO `ciudades` VALUES (1,1,'Aguascalientes'),(2,2,'Ensenada'),(3,2,'Mexicali'),(4,2,'Tijuana'),(5,3,'La Paz'),(6,3,'Los Cabos'),(7,4,'Campeche'),(8,4,'Ciudad del Carmen'),(9,5,'Saltillo'),(10,5,'Monclova-Frontera'),(11,5,'La Laguna'),(12,5,'Monclova'),(13,5,'Torreon'),(14,5,'Acuña'),(15,5,'Piedras Negras'),(16,6,'Tecomán'),(17,6,'Colima-Villa de Álvarez'),(18,6,'Manzanillo'),(19,7,'Tuxtla Gutiérrez'),(20,7,'Tapachula'),(21,7,'Ocosingo'),(22,7,'San Cristóbal de las Casas'),(23,7,'Comitán de Domínguez'),(24,8,'Chihuahua'),(25,8,'Juárez'),(26,8,'Cuauhtémoc'),(27,8,'Delicias'),(28,8,'Hidalgo del Parral'),(29,9,'Valle de México'),(30,10,'Durango'),(31,10,'Gómez Palacio'),(32,10,'Lerdoq'),(33,11,'Celaya'),(34,11,'Guanajuato'),(35,11,'Irapuato'),(36,11,'León'),(37,11,'Allende'),(38,11,'Pénjamo'),(39,11,'Silao'),(40,11,'Salvatierra'),(41,11,'Acambaro'),(42,11,'San Luis De La Paz'),(43,11,'Valle de santiago'),(44,11,'La Piedad-Pénjamo'),(45,11,'Dolores Hidalgo'),(46,11,'San Francisco del Rincón'),(47,11,'Salamanca'),(48,12,'Acapulco'),(49,12,'Chilapa de Alvarez'),(50,12,'Taxco de Alarcón'),(51,12,'José Azueta'),(52,12,'Iguala de la Independencia'),(53,12,'Chilpancingo de los Bravo'),(54,13,'Huejutla de Reyes'),(55,13,'Tulancingo de Bravo'),(56,13,'Huejutla de Reyes'),(57,13,'Pachuca de Soto'),(58,14,'Guadalajara'),(59,14,'Ocotlán'),(60,14,'Zapopan'),(61,14,'Tlaquepaque'),(62,14,'Tonalá'),(63,14,'Lagos de Moreno'),(64,14,'Tlajomulco de Zúñiga'),(65,14,'Tepatitlán de Morelos'),(66,14,'Puerto Vallarta'),(67,15,'Toluca'),(68,15,'Ecatepec de Morelos'),(69,15,'Nezahualcóyotl'),(70,15,'Naucalpan de Juárez'),(71,15,'Tlalnepantla de Baz'),(72,15,'Chimalhuacán'),(73,15,'Atizapán de Zaragoza'),(74,15,'Cuautitlán Izcalli'),(75,15,'Tultitlán'),(76,15,'Valle de Chalco Solidaridad'),(77,15,'Ixtapaluca'),(78,15,'Nicolás Romero'),(79,15,'Coacalco de Berriozábal'),(80,15,'Chalco'),(81,15,'La Paz'),(82,15,'Texcoco'),(83,15,'Metepec'),(84,15,'Huixquilucan'),(85,15,'Tecámac'),(86,15,'Zinacantepec'),(87,15,'Ixtlahuaca'),(88,15,'Almoloya de Juárez'),(89,15,'Zumpango'),(90,15,'Lerma'),(91,15,'San Felipe del Progreso'),(92,15,'Tejupilco'),(93,15,'Tultepec'),(94,16,'Zamora-Jacona'),(95,16,'Morelia'),(96,16,'Lázaro Cárdenas'),(97,16,'Zamora'),(98,16,'Apatzingán'),(99,16,'Hidalgo'),(100,16,'Zitácuaro'),(101,16,'Uruapan'),(102,17,'Cuautla'),(103,17,'Jiutepec'),(104,17,'Cuautla'),(105,17,'Temixco'),(106,17,'Cuernavaca'),(107,18,'Tepic'),(108,18,'Cosoleacaque'),(109,18,'Santiago Ixcuintla'),(110,19,'Monterrey'),(111,19,'Guadalupe'),(112,19,'San Nicolás de los Garza'),(113,19,'Apodaca'),(114,19,'General Escobedo'),(115,19,'Santa Catarina'),(116,19,'San Pedro Garza García'),(117,20,'Oaxaca'),(118,20,'Tehuantepec-Salina Cruz'),(119,20,'San Juan Bautista Tuxtepec'),(120,21,'Puebla-Tlaxcala'),(121,21,'Tehuacán'),(122,21,'San Martín Texmelucan'),(123,21,'Atlixco'),(124,21,'San Pedro Cholula'),(125,22,'Querétaro'),(126,22,'San Juan del Río'),(127,23,'Cancún'),(128,23,'Chetumal'),(129,23,'Benito Juárez'),(130,24,'Rioverde-Ciudad Fernández'),(131,24,'San Luis Potosí-Soledad'),(132,24,'Ciudad Valles'),(133,25,'Los Mochis'),(134,25,'Culiacán'),(135,25,'Ahome'),(136,25,'Navolato'),(137,25,'El Fuerte'),(138,25,'Mazatlán'),(139,26,'Ciudad Obregón'),(140,26,'Guaymas'),(141,26,'Cajeme'),(142,26,'Nogales'),(143,26,'Navojoa'),(144,26,'San Luis Río Colorado'),(145,26,'Hermosillo'),(146,27,'Cárdenas'),(147,27,'Villahermosa'),(148,27,'Comalcalco'),(149,27,'Huimanguillo'),(150,27,'Macuspana'),(151,27,'Cunduacán'),(152,28,'Tampico-Pánuco'),(153,28,'Matamoros'),(154,28,'Nuevo Laredo'),(155,28,'Reynosa'),(156,28,'Ciudad Victoria'),(157,28,'Altamira'),(158,28,'El Mante'),(159,28,'Río Bravo'),(160,29,'Tlaxcala-Apizaco'),(161,30,'Veracruz'),(162,30,'Córdoba'),(163,30,'Orizaba'),(164,30,'Xalapa'),(165,30,'Poza Rica'),(166,30,'Coatzacoalcos'),(167,30,'Minatitlán'),(168,30,'Papantla'),(169,30,'San Andrés Tuxtla'),(170,30,'Boca del Río'),(171,30,'Túxpam'),(172,30,'Martínez de la Torre'),(173,30,'Temapache'),(174,30,'Tantoyuca'),(175,30,'Pánuco'),(176,30,'Tierra Blanca'),(177,31,'Mérida'),(178,32,'Zacatecas'),(179,32,'Guadalupe'),(180,32,'Fresnillo');
+/*!40000 ALTER TABLE `ciudades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `empresas`
+--
+
 DROP TABLE IF EXISTS `empresas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -41,7 +68,7 @@ CREATE TABLE `empresas` (
   KEY `id_municipio` (`id_municipio`),
   CONSTRAINT `empresas_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estado`),
   CONSTRAINT `empresas_ibfk_2` FOREIGN KEY (`id_municipio`) REFERENCES `municipios` (`id_municipio`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +77,6 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (19,'CECyTEM Plantel 16','cecytem16@edu.mx',16,814,23456,'El atoron enfrente del balneario el paraiso','Servicios','Público','567 908 4356','Familia CECyTEM cual es nuestro rumbo la excelencia');
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,31 +133,33 @@ INSERT INTO `municipios` VALUES (1,1,'Aguascalientes'),(2,1,'Asientos'),(3,1,'Ca
 UNLOCK TABLES;
 
 --
--- Table structure for table `oferta`
+-- Table structure for table `ofertas`
 --
 
-DROP TABLE IF EXISTS `oferta`;
+DROP TABLE IF EXISTS `ofertas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `oferta` (
-  `id_empresa` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ofertas` (
+  `id_oferta` int(11) NOT NULL AUTO_INCREMENT,
+  `perfil` varchar(60) NOT NULL,
   `sueldo` varchar(80) DEFAULT NULL,
-  `descripcion` text NOT NULL,
+  `solicito` text NOT NULL,
   `requisitos` text NOT NULL,
   `actividades` text NOT NULL,
-  `domicilio` varchar(80) NOT NULL,
-  `perfil` varchar(60) NOT NULL,
-  PRIMARY KEY (`id_empresa`)
+  `email` varchar(40) NOT NULL,
+  PRIMARY KEY (`id_oferta`),
+  KEY `email` (`email`),
+  CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`email`) REFERENCES `empresas` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `oferta`
+-- Dumping data for table `ofertas`
 --
 
-LOCK TABLES `oferta` WRITE;
-/*!40000 ALTER TABLE `oferta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `oferta` ENABLE KEYS */;
+LOCK TABLES `ofertas` WRITE;
+/*!40000 ALTER TABLE `ofertas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ofertas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -148,7 +176,7 @@ CREATE TABLE `usuarios` (
   `tipo_usuario` enum('Empresa','Administrador') DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +185,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'admin@admin.com','2230adbb256f247dbcac7d0354992894efed8da7','Administrador'),(3,'cecytem16@edu.mx','2230adbb256f247dbcac7d0354992894efed8da7','Empresa');
+INSERT INTO `usuarios` VALUES (1,'a@a.aa','c8fd86a8122bd6134b4ad704080b2e9467f281af','Administrador');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,4 +202,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-14 19:56:20
+-- Dump completed on 2020-04-17 17:37:58

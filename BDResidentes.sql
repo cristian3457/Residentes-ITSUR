@@ -77,7 +77,7 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (19,'CECyTEM Plantel 16 Huandacareo','cecytem16@edu.mx',16,814,58821,'El atoron enfrente del balneario el paraiso','Servicios','Público','567 908 4356','Familia CECyTEM cual es nuestro rumbo la excelencia'),(53,'Patito01','patito01@gmail.com',11,324,21345,'Adsfffsdfsddsfdsddfs','Servicios','Público','1234567890','xszdsdfdssfdsgvgfsfggfgsgffg'),(54,'Empresa 1.0','empresa@empresa.com',11,364,32456,'Addfddsfssfddsdsfdfds','Industrial','Privado','3214567654','ACSDDFDSFDDFDASFFDAFAFFFD'),(61,'Picoro','picoro1@gmail.com',13,478,12345,'Adfsfffdserwrwrerwrwewreq','Industrial','Privado','3245678901','Aqewweerdffdsggv vfwgrwgrgwrrwrr'),(62,'CECyTEM 17','cecytem17@edu.mx',17,909,34567,'Ahsdhjdjsdjdhidhrry8328r843','Industrial','Privado','456 789 0765','fdfdfgdgg44t43r3rrrwqreqrerqrere');
+INSERT INTO `empresas` VALUES (19,'CECyTEM Plantel 16 Huandacareo','cecytem16@edu.mx',16,814,58821,'El atoron enfrente del balneario el paraiso','Servicios','Público','567 908 4356','Familia CECyTEM cual es nuestro rumbo la excelencia');
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +152,7 @@ CREATE TABLE `ofertas` (
   PRIMARY KEY (`id_oferta`),
   KEY `email` (`email`),
   CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`email`) REFERENCES `empresas` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +161,7 @@ CREATE TABLE `ofertas` (
 
 LOCK TABLES `ofertas` WRITE;
 /*!40000 ALTER TABLE `ofertas` DISABLE KEYS */;
-INSERT INTO `ofertas` VALUES (2,'Sistemas Computacionales','Sistemas Computacionales','$ 3,800 - $ 5,800','Ultimo semestre de la carrera sistemas computacionales','Que sepa programar mamalon','- Programar páginas web con Bootstrap\n- Programas robots con Arduino IDE','cecytem16@edu.mx'),(6,'Ingeniero Electrónico','Electrónica','$3,500 - $5,200','Qwkrkrlrklrekrelkreqlkl','- Ajdjjdfkkewfjkewjrk\n- Cvdsndabbjbda\n- Sdfkflfkdflñlkfdfd','- SKDKDAJKDJKSKA\n-Adkmdkjdakdjdskjkdsajk','patito01@gmail.com');
+INSERT INTO `ofertas` VALUES (1,'Gastronomo','Gastronomia','$1,200 - $2,200','Estudiante de ingenieria en gastronomia','- Datos Datos Datos','- Datos Datos Datos','cecytem16@edu.mx'),(2,'Gastronomo','Gastronomia','$1,200 - $2,200','Estudiante de ingenieria en gastronomia','- Datos Datos Datos','- Datos Datos Datos','cecytem16@edu.mx'),(3,'Gastronomo','Gastronomia','$1,200 - $2,200','Estudiante de ingenieria en gastronomia','- Datos Datos Datos','- Datos Datos Datos','cecytem16@edu.mx'),(4,'Gastronomo','Gastronomia','$1,200 - $2,200','Estudiante de ingenieria en gastronomia','- Datos Datos Datos','- Datos Datos Datos','cecytem16@edu.mx'),(5,'Gastronomo','Gastronomia','$1,200 - $2,200','Estudiante de ingenieria en gastronomia','- Datos Datos Datos','- Datos Datos Datos','cecytem16@edu.mx'),(6,'Gastronomo','Gastronomia','$1,200 - $2,200','Estudiante de ingenieria en gastronomia','- Datos Datos Datos','- Datos Datos Datos','cecytem16@edu.mx');
 /*!40000 ALTER TABLE `ofertas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +179,7 @@ CREATE TABLE `usuarios` (
   `tipo_usuario` enum('Empresa','Administrador') DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +188,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'admin@admin.com','2230adbb256f247dbcac7d0354992894efed8da7','Administrador'),(3,'cecytem16@edu.mx','2230adbb256f247dbcac7d0354992894efed8da7','Empresa'),(53,'patito02@gmail.com','2230adbb256f247dbcac7d0354992894efed8da7','Empresa'),(54,'patito03@gmail.com','350ef029102de77070cabf021e16377f4ff2ef6d','Empresa'),(58,'patito01@gmail.com','2230adbb256f247dbcac7d0354992894efed8da7','Empresa');
+INSERT INTO `usuarios` VALUES (1,'cecytem16@edu.mx','2230adbb256f247dbcac7d0354992894efed8da7','Empresa'),(2,'a@a.aa','2230adbb256f247dbcac7d0354992894efed8da7','Administrador');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-19 19:47:24
+-- Dump completed on 2020-04-20 14:43:52
